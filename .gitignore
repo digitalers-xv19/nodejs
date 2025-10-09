@@ -1,0 +1,11 @@
+# Entorno de Desarrollo
+node_modules/
+.vscode/
+.env
+# Entorno de Produccion
+build/
+dist/
+
+# Registro
+*.log
+*.log*
