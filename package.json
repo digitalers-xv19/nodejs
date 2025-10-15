@@ -1,0 +1,40 @@
+{
+  "name": "proyecto_digitalers",
+  "version": "1.0.0",
+  "description": "Este proyecto es el resultado de los conocimientos adquiridos a lo largo de la capacitacion NodeJS Digitalers de Telecom.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "node --watch .",
+    "test": "mocha test/*",
+    "build": "tsc -b src/**.ts dist/",
+    "compile": "npm run build && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalers-xv19/nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalers-xv19/nodejs/issues"
+  },
+  "homepage": "https://github.com/digitalers-xv19/nodejs#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.1",
+    "passport": "^0.7.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "chai": "^6.2.0",
+    "dotenv": "^17.2.3",
+    "mocha": "^11.7.4",
+    "morgan": "^1.10.1",
+    "typescript": "^5.9.3"
+  }
+}
