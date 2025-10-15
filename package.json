@@ -2,12 +2,12 @@
   "name": "proyecto_digitalers",
   "version": "1.0.0",
   "description": "Este proyecto es el resultado de los conocimientos adquiridos a lo largo de la capacitacion NodeJS Digitalers de Telecom.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "dev": "node --watch .",
     "test": "mocha test/*",
-    "build": "tsc -b src/**.ts dist/",
+    "build": "tsc -b",
     "compile": "npm run build && npm run dev"
   },
   "repository": {
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/node": "^24.7.2",
     "chai": "^6.2.0",
     "dotenv": "^17.2.3",
     "mocha": "^11.7.4",
