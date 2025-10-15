@@ -5,7 +5,7 @@ node_modules/
 # Entorno de Produccion
 build/
 dist/
-
 # Registro
 *.log
 *.log*
+*lock.json
