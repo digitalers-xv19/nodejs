@@ -5,11 +5,11 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "start": "node .",
+    "start": "node dist/index.js",
     "dev": "node --watch .",
-    "test": "mocha test/*",
+    "test": "tsc -b && mocha test/**/*",
     "build": "tsc -b",
-    "compile": "npm run build && npm run dev"
+    "compile": "npm run build && npm start"
   },
   "repository": {
     "type": "git",
