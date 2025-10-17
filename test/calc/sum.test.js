@@ -14,7 +14,7 @@ describe('Desarrollo de Funcion sumar', () => {
         chai.expect(sum([],5)).to.have.property('message');
         chai.expect(sum("10",5)).to.be.a('number');
     })
-    it("Debe devolver Error si no se pasan 2 parametros", () =>{
+    it("Debe devolver Error si no se pasan 2 argumentos", () =>{
         chai.expect(sum(5)).to.have.property('message');
         chai.expect(sum(5,10,15)).to.have.property('message');
     })
