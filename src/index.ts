@@ -1,6 +1,7 @@
 /** Importaciones */
 import express from "express";
 import { config } from "dotenv"
+import calcRouter from "./routes/calc.routes.ts";
 
 /** Configuracion */
 config(); // Variables de Entorno
@@ -16,6 +17,6 @@ app.use(express.urlencoded({ extended: true })) // x-www-form-urlencoded
 app.use(express.static('public')) // static server
 
 /** Rutas */
-
+app.use("/api/calc/", calcRouter);
 /** Ejecucion*/
 app.listen(PORT, () => console.log("service running"))
