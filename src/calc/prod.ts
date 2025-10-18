@@ -1,8 +1,6 @@
-type int = number|string
-interface Error { message: string; }
-type SumFunction = (a:int, b:int) => number|Error
+import type { calcFunction } from "../definitions/calc.d.ts"
 
-export const producto:SumFunction = function (a,b) {
+export const producto:calcFunction = function (a,b) {
     if (arguments.length === 0)
         return 0
     if (arguments.length !== 2)
