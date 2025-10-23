@@ -5,6 +5,7 @@ import { config } from "dotenv"
 import { dbConn } from "./utils/dbConn.ts";
 import calcRouter from "./routes/calc.routes.ts";
 import apiRouter from "./routes/api.routes.ts";
+import { engine } from "express-handlebars";
 
 /** Configuracion */
 config(); // Variables de Entorno
@@ -16,10 +17,13 @@ const app = express(); // Servidor HttpExpress
 dbConn(URI);
 
 /* Middlewares */
+app.engine('hbs', engine({ extname: '.hbs' }));
+app.set('views', process.cwd() + '/src/views');
+app.set('view engine', 'hbs');
+
 app.use(express.json()) // FormData
 app.use(express.urlencoded({ extended: true })) // x-www-form-urlencoded
 app.use(express.static('public')) // static server
-
 /** Rutas */
 app.use("/api/calc/", calcRouter);
 app.use("/api/", apiRouter);
