@@ -7,9 +7,12 @@ export const encrypt = (req:Request, res:Response, next:NextFunction) => {
     req.body.password = hash;
     return next();
 };
-export const decrypt = (req:Request, res:{password:string, json: (data:object) => void}, next:NextFunction) => {
-    const [{body: {password}},{password:hash }] = [req, res]
+export const decrypt = (req:Request, res:Response) => {
+    const { body: { password, account: {_id, password:hash} }} = req 
     const success = bcrypt.compareSync(password, hash);
-    if (success) return next();
-    return res.json({message: 'no se pudieron validar las credenciales'})
+    return res.json({
+        message: success ? 
+        'inicio de sesion exitoso' : 
+        'no se pudieron validar las credenciales'
+    })
 }
