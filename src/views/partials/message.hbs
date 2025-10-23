@@ -1,0 +1,3 @@
+<div class="alert alert-{{#if response.status >= 400}}danger{{#else if response.status >= 200}}success{{else}}info{{/if}}">
+    {{message}}    
+</div>
