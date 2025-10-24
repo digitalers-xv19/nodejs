@@ -5,6 +5,9 @@
     {{>nav}}
     {{>header}}
     <main class="container">
+        {{#if response}}
+            {{>message}}
+        {{/if}}
         {{{body}}}
     </main>
     {{>footer}}
