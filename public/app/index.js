@@ -22,8 +22,8 @@
             form.appendChild(ctrl);
         })
         form.addEventListener('submit', (e) => {
-            // e.preventDefault();
-            // callBack(e);
+            e.preventDefault();
+            callBack(e);
         })
         return form;
     } 
@@ -41,8 +41,8 @@
         const data = await response.json();     
     }
     // Controladores
-    const LoginForm = () => createForm(loginModel, { id:'login',  method: 'post', action: '/api/login', formTitle: 'Iniciar Sesion' }, formAction);
-    const SignUpForm = () => createForm(signupModel, { id:'signup',  method: 'post', action: '/api/signup', formTitle: 'Registrarse' }, formAction);
+    const LoginForm = () => createForm(loginModel, { id:'login', className:'mx-auto p-3 | container', method: 'post', action: '/api/login', formTitle: 'Iniciar Sesion' }, formAction);
+    const SignUpForm = () => createForm(signupModel, { id:'signup', className:'mx-auto p-3 | container', method: 'post', action: '/api/signup', formTitle: 'Registrarse' }, formAction);
     // Renderizado
     root.append(
         LoginForm(),
