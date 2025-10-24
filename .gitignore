@@ -5,6 +5,7 @@ node_modules/
 # Entorno de Produccion
 build/
 dist/
+*buildinfo
 # Registro
 *.log
 *.log*
