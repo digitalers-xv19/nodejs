@@ -1,0 +1,18 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+input,
+select,
+textarea{
+    border: 1px solid var(--color);
+    border-radius: .25rem;
+    padding: .5rem;
+}
+form :not(button):valid{
+    --color: var(--success);
+}
+form :not(button):invalid{
+    --color: var(--danger);
+}

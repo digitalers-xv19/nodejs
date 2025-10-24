@@ -1,0 +1,25 @@
+table{
+    width: 100%;
+    margin: 1rem;
+    border-collapse: collapse;
+    color: var(--light);
+    background: linear-gradient(
+        var(--primary),
+        var(--secondary)
+    );
+}
+table caption{
+    padding: .5rem;
+    border-radius: .25rem .25rem 0 0;
+    background-color: var(--primary);
+}
+table tr{
+    padding: .5rem;
+    background-color: var(--color);
+}
+tr:nth-child(even){
+    --color: #3338;
+}
+tr:nth-child(odd){
+    --color: #6668;
+}

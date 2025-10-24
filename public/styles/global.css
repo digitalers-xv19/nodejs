@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+}
+:root{
+    --primary: #448;
+    --secondary: #c36;
+    --light: #eee;
+    --dark: #333;
+    --success: #3c6;
+    --warning: #ea3;
+    --danger: #a33;
+    --info: #46e;
+}
