@@ -28,23 +28,53 @@
         return form;
     } 
     const formAction = async (e) => {
+        e.preventDefault();
         const url = new URL(e.target.action).pathname;
         const formData = new FormData(e.target)
-        const body = [...formData.entries()]
-        const options = {
-            method: e.target.method.toUpperCase(),
-            headers: { 'Response-Type': 'application/json'},
-            body,
-        }
-        console.log(options);
-        const response = await fetch(url, options)
-        const data = await response.json();     
+        const data = Object.fromEntries(formData.entries())
+
+        sessionStorage.setItem('userData', JSON.stringify(data));
     }
     // Controladores
     const LoginForm = () => createForm(loginModel, { id:'login', className:'mx-auto p-3 | container', method: 'post', action: '/api/login', formTitle: 'Iniciar Sesion' }, formAction);
     const SignUpForm = () => createForm(signupModel, { id:'signup', className:'mx-auto p-3 | container', method: 'post', action: '/api/signup', formTitle: 'Registrarse' }, formAction);
+    
+    const changeColor = (target) => {
+        const theme = getTheme();
+        const oposite = theme === 'light' ? 'dark' : 'light';
+        console.log(theme, oposite)
+        target.classList.add(`bg-${theme}`, `text-${oposite}`)
+        target.classList.remove(`bg-${oposite}`, `text-${theme}`)
+
+    };
+    const themeButton = () => {
+        const button = document.createElement('button')
+        button.innerHTML = `${getTheme()} theme`;
+        changeColor(root);
+        button.addEventListener('click', function({target}){
+            const theme = getTheme()
+            setTheme(theme === 'light' ? 'dark' : 'light');
+            const childrens = root.querySelectorAll('*');
+            target.innerHTML = `${theme} theme`;
+            Array.from(childrens).map(tag => changeColor(tag));
+        })
+        return button;
+    }
+    const getTheme = () => localStorage.getItem('theme') || 'light';
+    const setTheme = (value) => localStorage.setItem('theme', value);
+    const clearButton = () => {
+        const button = document.createElement('button');
+        button.innerHTML = "limpiar datos";
+        changeColor(button);
+        button.addEventListener('click', () => {
+            localStorage.removeItem('theme');
+        })
+        return button
+    }
     // Renderizado
     root.append(
+        themeButton(),
+        clearButton(),
         LoginForm(),
         SignUpForm(),
     )
